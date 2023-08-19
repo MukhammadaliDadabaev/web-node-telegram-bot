@@ -47,7 +47,19 @@ const App = () => {
   }
   // BU USERGA-MA'LUMOT JO'NATISH FUNC
   const onSendData = useCallback(() => {
-    telegram.sendData(JSON.stringify(cartItems))
+    // inline_keyboard-ni id-sini olish
+    const queryId = telegram.initDataUnsave?.query_id
+    if (queryId) {
+      fetch('http://localhost:8000/web-app', {
+        method: 'post',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(cartItems)
+      })
+    } else {
+      telegram.sendData(JSON.stringify(cartItems))
+    }
   }, [cartItems])
 
   useEffect(() => {
