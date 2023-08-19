@@ -48,12 +48,12 @@ const App = () => {
   // BU USERGA-MA'LUMOT JO'NATISH FUNC
   const onSendData = useCallback(() => {
     // inline_keyboard-ni id-sini olish
-    const queryId = telegram.initDataUnsave?.query_id
+    const queryId = telegram.initDataUnsafe?.query_id
     if (queryId) {
       fetch(' https://samaliwebbot-9dd53e1ca013.herokuapp.com/web-app', {
         method: 'post',
         headers: {
-          'Content-type': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ products: cartItems, queryId: queryId })
       })
