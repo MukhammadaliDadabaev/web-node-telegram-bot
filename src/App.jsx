@@ -50,7 +50,7 @@ const App = () => {
     // inline_keyboard-ni id-sini olish
     const queryId = telegram.initDataUnsave?.query_id
     if (queryId) {
-      fetch('http://localhost:8000/web-app', {
+      fetch(' https://samaliwebbot-9dd53e1ca013.herokuapp.com/web-app', {
         method: 'post',
         headers: {
           'Content-type': 'application/json'
